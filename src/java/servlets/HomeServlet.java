@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
  *
  * @author 631503
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
 
     @Override
@@ -20,16 +19,19 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        String user = (String) session.getAttribute("username");
         
-        //logout and say  "You have successfully logged out."
-        
-        getServletContext().getRequestDispatcher("/WEB-INF/home.jsp")
-                .forward(request, response);
+        if (user != null) {
+            getServletContext().getRequestDispatcher("/WEB-INF/home.jsp")
+                    .forward(request, response);
+        } else {
+            response.sendRedirect("login");
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        //not applicable
     }
 }
