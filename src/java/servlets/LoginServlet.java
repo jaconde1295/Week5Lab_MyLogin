@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -17,6 +18,19 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+
+        //logout user
+        
+        //show message - make sure they're all filled
+        
+        //set attribute of username and password
+        
+        //store username in session variable
+        
+        //display error message
+        
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
                 .forward(request, response);
     }
@@ -26,5 +40,5 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
     }
-    
+
 }

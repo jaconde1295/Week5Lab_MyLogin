@@ -10,5 +10,18 @@ package models;
  * @author 631503
  */
 public class AccountService {
-    //public User login(String username, String password)
+
+    public User login(String username, String password) {
+        User user = new User(username, null);
+        
+        if (username.equals("abe") && password.equals("password")) {
+            return user;
+        } 
+        else if (username.equals("barb") && password.equals("password")) {
+            return user;
+        } 
+        else {
+            return null;
+        }
+    }
 }
